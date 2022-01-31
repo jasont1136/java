@@ -21,5 +21,10 @@ public class AddSpacesTest {
             assertEquals("Leetcode Helps Me Learn", result);
         }
 
+        {
+            final String result = AddSpaces.apply("spacing", new int[]{1, 2, 3, 4, 5, 6});
+
+            assertEquals("s p a c i n g", result);
+        }
     }
 }
