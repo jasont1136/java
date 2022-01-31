@@ -4,10 +4,6 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * @author jasontewhau
- * @since 1/31/22
- */
 public class MinMovesTest {
 
     @Test

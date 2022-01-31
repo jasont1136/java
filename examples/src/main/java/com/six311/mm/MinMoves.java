@@ -1,12 +1,17 @@
 package com.six311.mm;
 
 /**
- * @author jasontewhau
- * @since 1/31/22
+ * Calculates the minimum moves to reach target. Rules are:
+ * - can use up to at most maxDoubles
+ * - unlimited increment by 1
+ *
  */
 public class MinMoves {
 
     static int apply(final int target, final int maxDoubles) {
+
+        // Should start at the end, and burn the doubles as soon as possible
+        // if there are no doubles left, then count will be (target - 1) + current count value
 
         int runningCount = 0;
         int runningTotal = target;
@@ -20,13 +25,13 @@ public class MinMoves {
                 runningCount++;
                 doublesAvailable--;
             } else {
-                // cannot divide evenly by 2, so reduce by 1 increment
+                // cannot divide evenly by 2, so decrement total by 1
                 runningTotal--;
                 runningCount++;
             }
         }
 
-        // check if any runningTotal > 1 remaining, if so then increment runningCount by this much - 1
+        // check if any runningTotal remaining, if so then increment runningCount by this value - 1
         if (runningTotal > 1) {
             runningCount += runningTotal - 1;
         }

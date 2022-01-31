@@ -3,10 +3,6 @@ package com.six311.rt;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @author jasontewhau
- * @since 1/30/22
- */
 class RankTeams {
 
     static String apply(final String[] votes) {

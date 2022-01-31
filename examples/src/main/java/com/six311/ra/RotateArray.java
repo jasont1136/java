@@ -1,9 +1,5 @@
 package com.six311.ra;
 
-/**
- * @author jasontewhau
- * @since 1/31/22
- */
 class RotateArray {
 
     static int[] right(final int[] a, final int k) {

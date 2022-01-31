@@ -1,9 +1,5 @@
-package com.six311.pq;
+package com.six311.model;
 
-/**
- * @author jasontewhau
- * @since 1/31/22
- */
 public class Student {
     private final String name;
     private final float gpa;

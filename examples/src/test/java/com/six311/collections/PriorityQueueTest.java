@@ -1,13 +1,11 @@
-package com.six311.pq;
+package com.six311.collections;
 
+import com.six311.model.Student;
+import com.six311.model.StudentComparator;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * @author jasontewhau
- * @since 1/31/22
- */
 public class PriorityQueueTest {
 
     @Test

@@ -4,10 +4,6 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-/**
- * @author jasontewhau
- * @since 1/31/22
- */
 public class RotateArrayTest {
 
     @Test

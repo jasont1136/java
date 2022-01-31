@@ -1,13 +1,7 @@
-package com.six311.pq;
+package com.six311.model;
 
 import java.util.Comparator;
 
-/**
- * A comparator for the Student class.
- *
- * @author jasontewhau
- * @since 1/31/22
- */
 public class StudentComparator implements Comparator<Student> {
     @Override
     public int compare(final Student s1, final Student s2) {

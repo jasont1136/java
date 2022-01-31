@@ -1,14 +1,10 @@
-package com.six311.pq;
+package com.six311.collections;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-/**
- * @author jasontewhau
- * @since 1/30/22
- */
 public class PriorityQueue<E> {
 
     final List<E> list = new ArrayList<>();

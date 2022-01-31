@@ -14,8 +14,3 @@ class AppTest {
         assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
     }
 }
-
-// eleven36
-// six311
-// six9
-

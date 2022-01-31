@@ -1,4 +1,6 @@
-package com.six311.bt;
+package com.six311.collections;
+
+import com.six311.model.Node;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;

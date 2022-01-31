@@ -4,10 +4,6 @@ import javax.annotation.Nullable;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @author jasontewhau
- * @since 1/30/22
- */
 public class MinWindow {
 
     @Nullable

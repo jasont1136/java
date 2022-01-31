@@ -2,10 +2,6 @@ package com.six311.rt;
 
 import java.util.Arrays;
 
-/**
- * @author jasontewhau
- * @since 1/31/22
- */
 class Rank {
 
     private int score = 0;

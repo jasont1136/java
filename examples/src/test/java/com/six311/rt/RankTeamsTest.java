@@ -3,10 +3,6 @@ package com.six311.rt;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * @author jasontewhau
- * @since 1/30/22
- */
 public class RankTeamsTest {
 
     @Test

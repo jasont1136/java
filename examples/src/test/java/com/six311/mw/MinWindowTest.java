@@ -4,10 +4,6 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- * @author jasontewhau
- * @since 1/30/22
- */
 public class MinWindowTest {
 
     @Test

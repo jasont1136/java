@@ -1,9 +1,5 @@
 package com.six311.mw;
 
-/**
- * @author jasontewhau
- * @since 1/30/22
- */
 final class Result {
     private final int length;
     private final int beginIndex;

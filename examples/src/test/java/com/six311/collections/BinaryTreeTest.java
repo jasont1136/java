@@ -1,4 +1,4 @@
-package com.six311.bt;
+package com.six311.collections;
 
 import org.junit.jupiter.api.Test;
 
@@ -6,10 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-/**
- * @author jasontewhau
- * @since 1/30/22
- */
 public class BinaryTreeTest {
 
     private static final int[] INT_VALUES = new int[]{6, 2, 8, 4, 5, 3, 9, 10};

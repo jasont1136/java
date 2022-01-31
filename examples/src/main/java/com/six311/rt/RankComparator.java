@@ -2,10 +2,6 @@ package com.six311.rt;
 
 import java.util.Comparator;
 
-/**
- * @author jasontewhau
- * @since 1/31/22
- */
 public class RankComparator implements Comparator<Rank> {
 
     @Override
