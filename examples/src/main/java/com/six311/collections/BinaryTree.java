@@ -4,13 +4,21 @@ import com.six311.model.Node;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.Comparator;
 
 public final class BinaryTree<V extends Comparable<V>> {
 
     private Node<V> root;
 
+    private final Comparator<V> comparator;
+
     public BinaryTree() {
-      this.root = null;
+        this(null);
+    }
+
+    public BinaryTree(final Comparator<V> comparator) {
+        this.root = null;
+        this.comparator = comparator;
     }
 
     public void add(final V value) {
@@ -43,7 +51,7 @@ public final class BinaryTree<V extends Comparable<V>> {
             return false;
         }
 
-        final int compare = value.compareTo(current.getValue());
+        final int compare = compare(value, current.getValue());
 
         final boolean result;
 
@@ -67,7 +75,7 @@ public final class BinaryTree<V extends Comparable<V>> {
             return new Node<>(value);
         }
 
-        final int compare = value.compareTo(current.getValue());
+        final int compare = compare(value, current.getValue());
 
         if (compare < 0) {
             current.setLeft(addRecursive(current.getLeft(), value));
@@ -149,5 +157,14 @@ public final class BinaryTree<V extends Comparable<V>> {
 
     private V findSmallestValue(final Node<V> node) {
         return node.getLeft() == null ? node.getValue() : findSmallestValue(node.getLeft());
+    }
+
+    private int compare(final V v1, final V v2) {
+        if (comparator == null) {
+            return v1.compareTo(v2);
+        }
+        else {
+            return comparator.compare(v1, v2);
+        }
     }
 }
