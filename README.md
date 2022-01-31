@@ -1,5 +1,16 @@
 # Java Examples
 
+### 2109. Adding Spaces to a String [Medium]
+
+You are given a 0-indexed string s and a 0-indexed integer array spaces that describes the 
+indices in the original string where spaces will be added. Each space should be inserted before the character at the given index.
+
+Link: https://leetcode.com/problems/adding-spaces-to-a-string/
+
+Solution: [AddSpaces.java](examples/src/main/java/com/six311/leetcode/AddSpaces.java)
+
+<hr/> 
+
 ### 2117. Abbreviating the Product of a Range [Hard]
 
 You are given two positive integers left and right with left <= right.    
