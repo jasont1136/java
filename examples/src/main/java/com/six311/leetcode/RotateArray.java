@@ -5,7 +5,7 @@ package com.six311.leetcode;
  *
  * https://leetcode.com/problems/rotate-array/
  */
-class RotateArray {
+public class RotateArray {
 
     public static int[] right(final int[] a, final int k) {
         return rotate(a, k, a.length - k);
