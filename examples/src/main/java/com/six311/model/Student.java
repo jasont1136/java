@@ -1,6 +1,8 @@
 package com.six311.model;
 
-public class Student {
+import java.util.Locale;
+
+public class Student implements Comparable<Student> {
     private final String name;
     private final float gpa;
 
@@ -19,9 +21,11 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "name='" + name + '\'' +
-                ", gpa=" + gpa +
-                '}';
+        return name + "(" + gpa + ")";
+    }
+
+    @Override
+    public int compareTo(final Student s) {
+        return getName().toLowerCase(Locale.ROOT).compareTo(s.getName().toLowerCase(Locale.ROOT));
     }
 }

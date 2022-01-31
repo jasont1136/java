@@ -1,6 +1,7 @@
 package com.six311.model;
 
 import java.util.Comparator;
+import java.util.Locale;
 
 public class StudentComparator implements Comparator<Student> {
     @Override
@@ -13,8 +14,8 @@ public class StudentComparator implements Comparator<Student> {
             return -1;
         }
         else {
-            // they must be the same, so sort by name
-            return s1.getName().compareTo(s2.getName());
+            // they must has the same GPA, so compare by name
+            return s1.getName().toLowerCase(Locale.ROOT).compareTo(s2.getName().toLowerCase(Locale.ROOT));
         }
     }
 }

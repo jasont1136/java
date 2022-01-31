@@ -13,16 +13,18 @@ public class PriorityQueueTest {
         final PriorityQueue<Student> pq = new PriorityQueue<>(new StudentComparator());
 
         pq.add(new Student("James", 3.0f));
-        pq.add(new Student("Frances", 3.2f));
+        pq.add(new Student("Frances", 2.9f));
         pq.add(new Student("Paige", 4.2f));
         pq.add(new Student("Sheldon", 4.0f));
-        pq.add(new Student("Sally", 2.5f));
+        pq.add(new Student("Sally", 3.5f));
+
+        System.out.println(pq.traverse());
 
         assertStudentMatches(pq.poll(), "Paige");
         assertStudentMatches(pq.poll(), "Sheldon");
-        assertStudentMatches(pq.poll(), "Frances");
-        assertStudentMatches(pq.poll(), "James");
         assertStudentMatches(pq.poll(), "Sally");
+        assertStudentMatches(pq.poll(), "James");
+        assertStudentMatches(pq.poll(), "Frances");
 
         assertTrue(pq.isEmpty());
     }
@@ -38,10 +40,12 @@ public class PriorityQueueTest {
         pq.add(new Student("Sally", 2.5f));
 
         assertStudentMatches(pq.poll(), "Paige");
-        pq.remove(3);
-        assertStudentMatches(pq.poll(), "Frances");
+        assertFalse(pq.remove(new Student("Paige", 4.2f)));
+        assertStudentMatches(pq.poll(), "Sheldon");
         pq.add(new Student("Mazer", 5.4f));
-        pq.add(new Student("Sheldon", 4.0f));
+        assertTrue(pq.add(new Student("Sheldon", 4.0f)));
+
+        System.out.println(pq.traverse());
 
         assertStudentMatches(pq.poll(), "Mazer");
     }
