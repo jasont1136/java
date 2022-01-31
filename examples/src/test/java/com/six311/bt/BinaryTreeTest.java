@@ -2,8 +2,6 @@ package com.six311.bt;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -14,62 +12,94 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  */
 public class BinaryTreeTest {
 
-    private static final int[] VALUES = new int[]{6, 2, 8, 4, 5, 3, 9, 10};
+    private static final int[] INT_VALUES = new int[]{6, 2, 8, 4, 5, 3, 9, 10};
+    private static final String[] STR_VALUES = new String[]{"F", "J", "B", "S", "D", "A", "K", "E", "C", "W"};
 
     @Test
     public void testBinaryTree_prettyPrint() {
 
-        final BinaryTree bt = createBinaryTree();
+        {
+            final BinaryTree<Integer> bt = createIntBinaryTree();
+            bt.prettyPrint();
+        }
 
-        bt.prettyPrint();
+        {
+            final BinaryTree<String> bt = createStringBinaryTree();
+            bt.prettyPrint();
+        }
+
     }
 
     @Test
     public void testBinaryTree_traverse() {
 
-        final BinaryTree bt = createBinaryTree();
+        {
+            final BinaryTree<Integer> bt = createIntBinaryTree();
 
-        final String sorted = bt.traverse();
+            final String sorted = bt.traverse();
 
-        final StringBuilder sb = new StringBuilder();
-        Arrays.stream(VALUES).sorted().forEach(x -> sb.append(" ").append(x));
-        System.out.println(sb);
+            assertEquals(" 2 3 4 5 6 8 9 10", sorted);
+        }
 
-        assertEquals(sb.toString(), sorted);
-    }
+        {
+            final BinaryTree<String> bt = createStringBinaryTree();
 
-    @Test
-    public void testBinaryTree_contains() {
+            final String sorted = bt.traverse();
 
-        final BinaryTree bt = createBinaryTree();
-
-        assertTrue(bt.contains(10));
-        assertFalse(bt.contains(13));
+            assertEquals(" A B C D E F J K S W", sorted);
+        }
     }
 
     @Test
     public void testBinaryTree_delete() {
 
-        final BinaryTree bt = createBinaryTree();
+        {
+            final BinaryTree<Integer> bt = createIntBinaryTree();
 
-        assertTrue(bt.contains(10));
+            assertTrue(bt.contains(10));
 
-        bt.delete(10);
+            bt.delete(10);
 
-        assertFalse(bt.contains(10));
-        assertFalse(bt.contains(13));
+            assertFalse(bt.contains(10));
+            assertFalse(bt.contains(13));
 
-        bt.delete(13);
+            bt.delete(13);
 
-        assertFalse(bt.contains(13));
+            assertFalse(bt.contains(13));
+        }
+
+        {
+            final BinaryTree<String> bt = createStringBinaryTree();
+
+            assertTrue(bt.contains("S"));
+
+            bt.delete("S");
+
+            assertFalse(bt.contains("S"));
+            assertFalse(bt.contains("Q"));
+
+            bt.delete("Q");
+
+            assertFalse(bt.contains("Q"));
+        }
 
     }
 
-    private BinaryTree createBinaryTree() {
+    private BinaryTree<Integer> createIntBinaryTree() {
 
-        final BinaryTree bt = new BinaryTree();
+        final BinaryTree<Integer> bt = new BinaryTree<>();
 
-        for (final int value : VALUES) {
+        for (final int value : INT_VALUES) {
+            bt.add(value);
+        }
+
+        return bt;
+    }
+
+    private BinaryTree<String> createStringBinaryTree() {
+        final BinaryTree<String> bt = new BinaryTree<>();
+
+        for (final String value : STR_VALUES) {
             bt.add(value);
         }
 

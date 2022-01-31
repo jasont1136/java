@@ -1,27 +1,21 @@
 package com.six311.bt;
 
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode(int x) { val = x; }
- * }
- */
-public final class BinaryTree {
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
-    private Node root;
+public final class BinaryTree<V extends Comparable<V>> {
+
+    private Node<V> root;
 
     public BinaryTree() {
-        this.root = null;
+      this.root = null;
     }
 
-    public void add(final int value) {
+    public void add(final V value) {
         root = addRecursive(root, value);
     }
 
-    public boolean contains(final int value) {
+    public boolean contains(final V value) {
         return containsRecursive(root, value);
     }
 
@@ -31,7 +25,7 @@ public final class BinaryTree {
         return sb.toString();
     }
 
-    public void delete(final int value) {
+    public void delete(final V value) {
         deleteRecursive(root, value);
     }
 
@@ -41,102 +35,117 @@ public final class BinaryTree {
 
     // PRIVATE METHODS
 
-    private boolean containsRecursive(final Node current, final int value) {
+    private boolean containsRecursive(@Nullable final Node<V> current, final V value) {
 
         if (current == null) {
             return false;
         }
 
-        if (value == current.value) {
-            return true;
+        final int compare = value.compareTo(current.getValue());
+
+        final boolean result;
+
+        if (compare == 0) {
+            result = true;
+        }
+        else if (compare < 0) {
+            result = containsRecursive(current.getLeft(), value);
         }
         else {
-            return value < current.value?
-                    containsRecursive(current.left, value):
-                    containsRecursive(current.right, value);
+            result = containsRecursive(current.getRight(), value);
         }
+
+        return result;
     }
 
-    private Node addRecursive(final Node current, final int value) {
+    @Nonnull
+    private Node<V> addRecursive(@Nullable final Node<V> current, final V value) {
 
         if (current == null) {
-            return new Node(value);
+            return new Node<>(value);
         }
 
-        if (value < current.value) {
-            current.left = addRecursive(current.left, value);
-        } else if (value > current.value) {
-            current.right = addRecursive(current.right, value);
-        } else {
-            // value already exists
-            return current;
+        final int compare = value.compareTo(current.getValue());
+
+        if (compare < 0) {
+            current.setLeft(addRecursive(current.getLeft(), value));
+        } else if (compare > 0) {
+            current.setRight(addRecursive(current.getRight(), value));
         }
+        // else {
+        //     value already present so nothing to do
+        // }
 
         return current;
     }
 
-    private void traverseRecursive(final Node node, final StringBuilder sb) {
+    private void traverseRecursive(@Nullable final Node<V> node, final StringBuilder sb) {
         if (node != null) {
-            traverseRecursive(node.left, sb);
-            sb.append(" ").append(node.value);
-            traverseRecursive(node.right, sb);
+            traverseRecursive(node.getLeft(), sb);
+            sb.append(" ").append(node.getValue());
+            traverseRecursive(node.getRight(), sb);
         }
     }
 
-    private Node deleteRecursive(final Node current, final int value) {
+    @Nullable
+    private Node<V> deleteRecursive(@Nullable final Node<V> current, final V value) {
+
         if (current == null) {
             return null;
         }
 
-        if (value == current.value) {
+        final int compare = value.compareTo(current.getValue());
 
-            if (current.left == null && current.right == null) {
+        if (compare == 0) {
+
+            if (current.getLeft() == null && current.getRight() == null) {
                 return null;
             }
-            else if (current.right == null) {
-                return current.left;
+            else if (current.getRight() == null) {
+                return current.getLeft();
             }
-            else if (current.left == null) {
-                return current.right;
+            else if (current.getLeft() == null) {
+                return current.getRight();
             }
             else {
 
-                final int smallestValue = findSmallestValue(current.right);
-                current.value = smallestValue;
-                current.right = deleteRecursive(current.right, smallestValue);
+                final V smallestValue = findSmallestValue(current.getRight());
+                current.setValue(smallestValue);
+                current.setRight(deleteRecursive(current.getRight(), smallestValue));
 
                 return current;
             }
         }
         else {
 
-            if (value < current.value) {
-                current.left = deleteRecursive(current.left, value);
+            if (compare < 0) {
+                current.setLeft(deleteRecursive(current.getLeft(), value));
                 return current;
             } else {
-                current.right = deleteRecursive(current.right, value);
+                current.setRight(deleteRecursive(current.getRight(), value));
                 return current;
             }
         }
     }
 
-    private void prettyPrintRecursive(final Node current, final String prefix, final boolean isLeft) {
+    private void prettyPrintRecursive(@Nullable final Node<V> current, final String prefix, final boolean isLeft) {
+
         if (current == null) {
             return;
         }
 
-        if (current.right != null) {
-            prettyPrintRecursive(current.right, prefix + (isLeft ? "│   " : "    "), false);
+        if (current.getRight() != null) {
+            prettyPrintRecursive(current.getRight(), prefix + (isLeft ? "│   " : "    "), false);
         }
 
-        System.out.println(prefix + (isLeft ? "└── " : "┌── ") + current.value);
+        System.out.println(prefix + (isLeft ? "└── " : "┌── ") + current.getValue());
 
-        if (current.left != null) {
-            prettyPrintRecursive(current.left, prefix + (isLeft ? "    " : "│   "), true);
+        if (current.getLeft() != null) {
+            prettyPrintRecursive(current.getLeft(), prefix + (isLeft ? "    " : "│   "), true);
         }
     }
 
-    private int findSmallestValue(final Node node) {
-        return node.left == null ? node.value : findSmallestValue(node.left);
+    private V findSmallestValue(final Node<V> node) {
+        return node.getLeft() == null ? node.getValue() : findSmallestValue(node.getLeft());
     }
 }
