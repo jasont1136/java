@@ -1,7 +1,7 @@
 package com.six311.leetcode;
 
 /**
- * Given an array, rotate the array to the right by k steps, where k is non-negative.
+ * Given an array, rotate the array to the right or left by k steps, where k is non-negative.
  *
  * https://leetcode.com/problems/rotate-array/
  */
