@@ -1,4 +1,4 @@
-package com.six311.rt;
+package com.six311.leetcode.rt;
 
 import java.util.Comparator;
 

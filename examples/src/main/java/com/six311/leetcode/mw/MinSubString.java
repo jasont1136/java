@@ -1,8 +1,15 @@
-package com.six311.mw;
+package com.six311.leetcode.mw;
 
 import javax.annotation.Nullable;
 
-public class MinWindow {
+/**
+ * Given two strings s and t of lengths m and n respectively, return the minimum window substring of s such that every
+ * character in t (including duplicates) is included in the window. If there is no such substring, return the
+ * empty string "".
+ *
+ * https://leetcode.com/problems/minimum-window-substring/
+ */
+public class MinSubString {
 
     @Nullable
     public static String apply(final String s, final String t) {

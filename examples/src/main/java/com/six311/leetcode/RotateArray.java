@@ -1,12 +1,17 @@
-package com.six311.ra;
+package com.six311.leetcode;
 
+/**
+ * Given an array, rotate the array to the right by k steps, where k is non-negative.
+ *
+ * https://leetcode.com/problems/rotate-array/
+ */
 class RotateArray {
 
-    static int[] right(final int[] a, final int k) {
+    public static int[] right(final int[] a, final int k) {
         return rotate(a, k, a.length - k);
     }
 
-    static int[] left(final int[] a, final int k) {
+    public static int[] left(final int[] a, final int k) {
         return rotate(a, k, k);
     }
 

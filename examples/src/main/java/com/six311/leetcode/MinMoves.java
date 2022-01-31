@@ -1,14 +1,15 @@
-package com.six311.mm;
+package com.six311.leetcode;
 
 /**
  * Calculates the minimum moves to reach target. Rules are:
- * - can use up to at most maxDoubles
+ * - may double up to maxDoubles number of times
  * - unlimited increment by 1
  *
+ * https://leetcode.com/problems/minimum-moves-to-reach-target-score/
  */
 public class MinMoves {
 
-    static int apply(final int target, final int maxDoubles) {
+    public static int apply(final int target, final int maxDoubles) {
 
         // Should start at the end, and burn the doubles as soon as possible
         // if there are no doubles left, then count will be (target - 1) + current count value

@@ -1,4 +1,4 @@
-package com.six311.mw;
+package com.six311.leetcode.mw;
 
 final class Result {
     private final int length;

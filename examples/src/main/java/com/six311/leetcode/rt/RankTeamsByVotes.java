@@ -1,11 +1,18 @@
-package com.six311.rt;
+package com.six311.leetcode.rt;
 
 import java.util.HashMap;
 import java.util.Map;
 
-class RankTeams {
+/**
+ * In a special ranking system, each voter gives a rank from highest to lowest to all teams participated in the competition.
+ *
+ * ...
+ *
+ * https://leetcode.com/problems/rank-teams-by-votes/
+ */
+public class RankTeamsByVotes {
 
-    static String apply(final String[] votes) {
+    public static String apply(final String[] votes) {
 
         final Map<Character, Rank> rankMap = new HashMap<>();
 

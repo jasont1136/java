@@ -1,9 +1,9 @@
-package com.six311.rt;
+package com.six311.leetcode.rt;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class RankTeamsTest {
+public class RankTeamsByVotesTest {
 
     @Test
     public void testRankTeams() {
@@ -11,7 +11,7 @@ public class RankTeamsTest {
         {
             final String[] votes = new String[]{"ABC","ACB","ABC","ACB","ACB"};
 
-            final String result = RankTeams.apply(votes);
+            final String result = RankTeamsByVotes.apply(votes);
 
             assertEquals("ACB", result);
         }
@@ -19,7 +19,7 @@ public class RankTeamsTest {
         {
             final String[] votes = new String[]{"WXYZ","XYZW"};
 
-            final String result = RankTeams.apply(votes);
+            final String result = RankTeamsByVotes.apply(votes);
 
             assertEquals("XWYZ", result);
         }
@@ -27,7 +27,7 @@ public class RankTeamsTest {
         {
             final String[] votes = new String[]{"ABC","ACB","ABC","ACB","ACB", "BCA"};
 
-            final String result = RankTeams.apply(votes);
+            final String result = RankTeamsByVotes.apply(votes);
 
             assertEquals("ABC", result);
         }

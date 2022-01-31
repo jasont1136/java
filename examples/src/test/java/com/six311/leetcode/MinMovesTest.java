@@ -1,4 +1,4 @@
-package com.six311.mm;
+package com.six311.leetcode;
 
 import org.junit.jupiter.api.Test;
 
