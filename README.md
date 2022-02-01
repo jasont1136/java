@@ -1,5 +1,16 @@
 # Java Examples
 
+### 121. Best Time to Buy and Sell Stock [Easy]
+
+You are given an array prices where prices[i] is the price of a given stock on the ith day.
+
+
+Link: https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
+
+Solution: [BuySellStock.java](examples/src/main/java/com/six311/leetcode/BuySellStock.java)
+
+<hr/> 
+
 ### 2109. Adding Spaces to a String [Medium]
 
 You are given a 0-indexed string s and a 0-indexed integer array spaces that describes the 
